@@ -42,4 +42,5 @@ if __name__ == "__main__":
 
 4. Uncomment `override_gmail()` with an gmail account and password as corresponding arguments if sending logs by email.
 
-5. Save the file and run `pyinstaller main.py --onefile --windowed` to compile the python file as a single .exe.
+5. Save the file and right-click while holding shift to open powershell window.
+6. Enter `pyinstaller main.py --onefile --windowed` in the console to compile the python file as a single .exe.
