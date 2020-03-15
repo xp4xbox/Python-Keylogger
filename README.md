@@ -38,7 +38,7 @@ if __name__ == "__main__":
     main.start()
 ```
 
-3. Modify the constructor arguments such as in the commented examples where arg1 is the time before exporting logs, arg2 is the path to export the logs to (if sending logs by email, set this to ""), arg3-6 are bools for adding to startup, logging clicks, checking for virtual machine, and checking for sandboxie correspondingly.
+3. Modify the constructor arguments such as in the commented examples where arg1 is the time before exporting logs, arg2 is the path to export the logs to (if sending logs by email, set this to ""), and arg3-6 are bools for adding to startup, logging clicks, checking for virtual machine, and checking for sandboxie correspondingly.
 
 4. Call `override_gmail()` with an gmail account and password as corresponding arguments if sending logs by email.
 
