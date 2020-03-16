@@ -48,7 +48,7 @@ class main:
 
 
 if __name__ == "__main__":
-    main = main(120, "c:/temp/log.txt")
+    main = main(60, "c:/temp/log.txt")
 
     # main = main(180, os.environ["TEMP"] + "/log.txt")
     # main = main(180, "", True, True, True, True)
