@@ -44,3 +44,4 @@ if __name__ == "__main__":
 
 5. Save the file and right-click while holding shift to open powershell window.
 6. Enter `pyinstaller main.py --onefile --windowed` in the console to compile the python file as a single .exe.
+7. To stop the program enter `shift+F1` or kill the program in task manager.
