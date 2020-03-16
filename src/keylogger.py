@@ -52,7 +52,6 @@ class keylogger:
 
     def check_escape_char(self, key):
         self.key_combo.append(key)
-
         if key != self.escape_combo[len(self.key_combo) - 1]:
             self.key_combo = []
         else:
