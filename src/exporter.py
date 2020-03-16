@@ -1,19 +1,23 @@
 import smtplib, time
 
 
-def save_text_locally(text, file_path, log=True):
+def save_text_locally(text, file_path):
     try:
+        file = open(file_path, "r")
+        file.close()
         file = open(file_path, "a")
     except:
-        file = open(file_path, "w")
+        try:
+            file = open(file_path, "a")
+            file.write("-"*10 + "{0} {1}".format(time.strftime("%d/%m/%Y"), time.strftime("%I:%M:%S")) + "-"*10 + "\n")
+        except:
+            return False
 
     file.write("")
-
-    if log:
-        file.write("\n" + "-"*10 + "{0} {1}".format(time.strftime("%d/%m/%Y"), time.strftime("%I:%M:%S")) + "-"*10 + "\n")
-
     file.write(text)
     file.close()
+
+    return True
 
 
 def send_gmail(text, email, password):
