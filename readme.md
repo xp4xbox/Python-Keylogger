@@ -30,6 +30,6 @@ This program requires:
 2. Right-click while holding shift to open powershell window.
 3. Run `python setup.py` to build the .exe.
 4. Open the `dist` folder and run the compiled .exe.
-5. To stop the prgoram enter `shift+F1` or kill the program in task manager.
+5. To stop the program enter `shift+F1` or kill the program in task manager.
 
 > NOTE: Env Variables such as `%userprofile%` and `%tmp%` are allowed in the log path.
