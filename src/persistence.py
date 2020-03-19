@@ -36,7 +36,7 @@ def add_to_startup(appdata_path, current_file_path):
 
         return True
     except:
-       return False
+        return False
 
 
 def remove_from_startup():
