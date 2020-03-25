@@ -32,6 +32,7 @@ This program requires:
 4. Open the `dist` folder and run the compiled .exe.
 
 > NOTE: Env Variables such as `%userprofile%` and `%tmp%` are allowed in the log path.
+> NOTE: If sending logs to a gmail account, that account must have allowed access for less secure apps.
 
 ## Uninstallation
 
