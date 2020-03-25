@@ -10,6 +10,7 @@ This program requires:
 * [Python3](https://www.python.org/downloads/)
 * [Pywin32](https://sourceforge.net/projects/pywin32/files/pywin32/)
 * [Pynput](https://pypi.org/project/pynput/)
+* [WMI](https://pypi.org/project/WMI/)
 * [Pyinstaller](https://pypi.org/project/PyInstaller/)
 
 1. Download the repository using github or git.
