@@ -31,8 +31,7 @@ This program requires:
 3. Run `python setup.py` to build the .exe.
 4. Open the `dist` folder and run the compiled .exe.
 
-> NOTE: Env Variables such as `%userprofile%` and `%tmp%` are allowed in the log path.
-> NOTE: If sending logs to a gmail account, that account must have allowed access for less secure apps.
+> NOTE: Env Variables such as `%userprofile%` and `%tmp%` are allowed in the log path. Also, if sending logs to a gmail account, that account must have allowed access for less secure apps.
 
 ## Uninstallation
 
