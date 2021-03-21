@@ -1,5 +1,5 @@
 from tkinter import *
-import os, shutil
+import os, shutil, sys
 from tkinter import messagebox
 
 python_path = "\"" + os.path.dirname(sys.executable)
