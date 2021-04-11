@@ -7,7 +7,7 @@ This program is an object oriented windows keylogger written in python3.
 ## Installation
 
 This program requires:
-* [Python3](https://www.python.org/downloads/)
+* [Python3](https://www.python.org/downloads/) (Make sure to add python to PATH during installation)
 * [Pywin32](https://sourceforge.net/projects/pywin32/files/pywin32/)
 * [Pynput](https://pypi.org/project/pynput/)
 * [WMI](https://pypi.org/project/WMI/)
