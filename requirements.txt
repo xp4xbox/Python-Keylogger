@@ -1,4 +1,2 @@
-pywin32
 pynput==1.6.8
-WMI
 pyinstaller

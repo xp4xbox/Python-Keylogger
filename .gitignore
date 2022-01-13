@@ -1,0 +1,5 @@
+build
+dist
+src/__pycache__
+.idea
+*.spec
